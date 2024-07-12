@@ -5,5 +5,7 @@ python-dotenv
 PyPDF2
 #HuggingFaceHub
 transformers
+langchain-community
+langchain-huggingface
 
-e .
+-e .
