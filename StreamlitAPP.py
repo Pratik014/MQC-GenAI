@@ -11,6 +11,12 @@ from src.GenAI.logger import logging
 
 # Load environment variables
 load_dotenv()
+import pkg_resources
+
+# Print installed packages for debugging
+installed_packages = pkg_resources.working_set
+installed_packages_list = sorted(["%s==%s" % (i.key, i.version) for i in installed_packages])
+print(installed_packages_list)
 
 # Try importing the correct callback function
 try:
