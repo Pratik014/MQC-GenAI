@@ -3,7 +3,7 @@ import sys
 import json
 import traceback
 import pandas as pd
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from src.GenAI.utils import read_file, get_table_data, clean_quiz_json
 import streamlit as st
 from src.GenAI.MCQGenerator import generate_evaluate_chain
