@@ -1,0 +1,121 @@
+
+[     UTC     ] Logs for quiz-mcq-generator.streamlit.app/
+────────────────────────────────────────────────────────────────────────────────────────
+[05:30:23] 🖥 Provisioning machine...
+[05:30:23] 🎛 Preparing system...
+[05:30:23] ⛓ Spinning up manager process...
+[05:30:22] 🚀 Starting up repository: 'mqc-genai', branch: 'main', main module: 'StreamlitAPP.py'
+[05:30:22] 🐙 Cloning repository...
+[05:30:23] 🐙 Cloning into '/mount/src/mqc-genai'...
+Warning: Permanently added the ED25519 host key for IP address '140.82.116.4' to the list of known hosts.
+
+[05:30:23] 🐙 Cloned repository!
+[05:30:23] 🐙 Pulling code changes from Github...
+[05:30:24] 📦 Processing dependencies...
+Check if streamlit is installed
+cat: /mount/admin/install_path: No such file or directory
+
+──────────────────────────────── Installing Streamlit ──────────────────────────────────
+
+Using uv pip install.
+Resolved 41 packages in 332ms
+Downloaded 41 packages in 1.80s
+Installed 41 packages in 66ms
+ + altair==5.3.0
+ + attrs==23.2.0
+ + blinker==1.8.2
+ + cachetools==5.3.3
+ [2024-07-13 05:30:26.751550] + certifi==2024.7.4
+ + charset-normalizer==3.3.2
+ + click==8.1.7
+ + gitdb==4.0.11
+ + gitpython==3.1.43
+ + idna==3.7
+ + jinja2==3.1.4
+ + jsonschema==4.23.0
+ + jsonschema-specifications==2023.12.1
+ + markdown-it-py==3.0.0
+ + markupsafe==2.1.5
+ + mdurl==0.1.2
+ + numpy==2.0.0
+ + packaging==24.1
+ + pandas==2.2.2
+ + pillow==10.4.0
+ + protobuf==5.27.2
+ + pyarrow==16.1.0
+ + pydeck==0.9.1
+ + pygments==2.18.0
+ + python-dateutil==2.9.0.post0
+ + pytz==2024.1
+ + referencing==0.35.1
+ +[2024-07-13 05:30:26.751795]  requests==2.32.3
+ + rich==13.7.1
+ + rpds-py==0.19.0
+ + six==1.16.0
+ + smmap==5.0.1
+ + streamlit==1.36.0
+ + tenacity==8.5.0
+ + toml==0.10.2
+ + toolz==0.12.1
+ + tornado==6.4.1
+ + typing-extensions==4.12.2
+ + tzdata==2024.1
+ + [2024-07-13 05:30:26.752006] urllib3==2.2.2
+ + watchdog==4.0.1
+
+────────────────────────────────────────────────────────────────────────────────────────
+
+[05:30:27] 📦 Processed dependencies!
+cat: /mount/admin/install_path: No such file or directory
+
+
+
+[05:35:27] ❗️ 
+2024-07-13 05:35:27.406 503 GET /script-health-check (127.0.0.1) 1648.18ms
+────────────────────── Traceback (most recent call last) ───────────────────────
+  /home/adminuser/venv/lib/python3.11/site-packages/streamlit/runtime/scriptru  
+  nner/script_runner.py:589 in _run_script                                      
+                                                                                
+  /mount/src/mqc-genai/StreamlitAPP.py:6 in <module>                            
+                                                                                
+     3 import json                                                              
+     4 import traceback                                                         
+     5 import pandas as pd                                                      
+  ❱  6 from dotenv import load_dotenv                                           
+     7 from src.GenAI.utils import read_file, get_table_data, clean_quiz_json   
+     8 import streamlit as st                                                   
+     9 from src.GenAI.MCQGenerator import generate_evaluate_chain               
+────────────────────────────────────────────────────────────────────────────────
+ModuleNotFoundError: No module named 'dotenv'
+────────────────────── Traceback (most recent call last) ───────────────────────
+  /home/adminuser/venv/lib/python3.11/site-packages/streamlit/runtime/scriptru  
+  nner/script_runner.py:589 in _run_script                                      
+                                                                                
+  /mount/src/mqc-genai/StreamlitAPP.py:6 in <module>                            
+                                                                                
+     3 import json                                                              
+     4 import traceback                                                         
+     5 import pandas as pd                                                      
+  ❱  6 from dotenv import load_dotenv                                           
+     7 from src.GenAI.utils import read_file, get_table_data, clean_quiz_json   
+     8 import streamlit as st                                                   
+     9 from src.GenAI.MCQGenerator import generate_evaluate_chain               
+────────────────────────────────────────────────────────────────────────────────
+ModuleNotFoundError: No module named 'dotenv'
+2024-07-13 05:35:30.923 503 GET /script-health-check (127.0.0.1) 163.00ms
+────────────────────── Traceback (most recent call last) ───────────────────────
+  /home/adminuser/venv/lib/python3.11/site-packages/streamlit/runtime/scriptru  
+  nner/script_runner.py:589 in _run_script                                      
+                                                                                
+  /mount/src/mqc-genai/StreamlitAPP.py:6 in <module>                            
+                                                                                
+     3 import json                                                              
+     4 import traceback                                                         
+     5 import pandas as pd                                                      
+  ❱  6 from dotenv import load_dotenv                                           
+     7 from src.GenAI.utils import read_file, get_table_data, clean_quiz_json   
+     8 import streamlit as st                                                   
+     9 from src.GenAI.MCQGenerator import generate_evaluate_chain               
+────────────────────────────────────────────────────────────────────────────────
+ModuleNotFoundError: No module named 'dotenv'
+2024-07-13 05:35:35.904 503 GET /script-health-check (127.0.0.1) 156.65ms
