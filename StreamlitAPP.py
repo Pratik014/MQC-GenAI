@@ -11,12 +11,20 @@ from src.GenAI.logger import logging
 
 # Load environment variables
 load_dotenv()
-import pkg_resources
+import subprocess
+import sys
 
-# Print installed packages for debugging
-installed_packages = pkg_resources.working_set
-installed_packages_list = sorted(["%s==%s" % (i.key, i.version) for i in installed_packages])
-print(installed_packages_list)
+# Function to install a package
+def install_package(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+# Try importing the package and install it if it fails
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    install_package('python-dotenv')
+    from dotenv import load_dotenv
+
 
 # Try importing the correct callback function
 try:
