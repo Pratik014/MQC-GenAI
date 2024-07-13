@@ -3,28 +3,28 @@ import sys
 import json
 import traceback
 import pandas as pd
-#from dotenv import load_dotenv
-from src.GenAI.utils import read_file, get_table_data, clean_quiz_json
-import streamlit as st
-from src.GenAI.MCQGenerator import generate_evaluate_chain
-from src.GenAI.logger import logging
-
-# Load environment variables
-load_dotenv()
 import subprocess
-import sys
+import streamlit as st
 
 # Function to install a package
 def install_package(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-# Try importing the package and install it if it fails
-try:
-    from dotenv import load_dotenv
-except ImportError:
-    install_package('python-dotenv')
-    from dotenv import load_dotenv
+# Ensure required packages are installed
+required_packages = ['python-dotenv', 'PyPDF2']
+for package in required_packages:
+    try:
+        __import__(package)
+    except ImportError:
+        install_package(package)
 
+from dotenv import load_dotenv
+from src.GenAI.utils import read_file, get_table_data, clean_quiz_json
+from src.GenAI.MCQGenerator import generate_evaluate_chain
+from src.GenAI.logger import logging
+
+# Load environment variables
+load_dotenv()
 
 # Try importing the correct callback function
 try:
