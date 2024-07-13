@@ -1,7 +1,7 @@
 openai
 langchain
 streamlit
-python-dotenv
+python3-dotenv
 PyPDF2
 transformers
 langchain-community
