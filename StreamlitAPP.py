@@ -8,6 +8,7 @@ from src.GenAI.utils import read_file, get_table_data, clean_quiz_json
 import streamlit as st
 from src.GenAI.MCQGenerator import generate_evaluate_chain
 from src.GenAI.logger import logging
+pip install python-dotenv
 
 # Load environment variables
 load_dotenv()
