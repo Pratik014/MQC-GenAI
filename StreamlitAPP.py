@@ -3,24 +3,9 @@ import sys
 import json
 import traceback
 import pandas as pd
-import subprocess
+from dotenv import load_dotenv
+from src.GenAI.utils import read_file, get_table_data,  clean_quiz_data
 
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-try:
-    from dotenv import load_dotenv
-except ImportError:
-    install_package('python-dotenv')
-    from dotenv import load_dotenv
-
-try:
-    import PyPDF2
-except ImportError:
-    install_package('PyPDF2')
-    import PyPDF2
-
-from src.GenAI.utils import read_file, get_table_data, clean_quiz_json
 import streamlit as st
 from src.GenAI.MCQGenerator import generate_evaluate_chain
 from src.GenAI.logger import logging
@@ -46,7 +31,7 @@ with st.form('user input'):
 
     mcq_count = st.number_input("Number of MCQs", min_value=3, max_value=10)
 
-    subject = st.text_input("Insert Subject", max_chars=20)
+    subject = st.text_input("Insert Subject", max_chars=25)
 
     tone = st.text_input("Complexity Level of Question", max_chars=20, placeholder='simple')
 
@@ -81,7 +66,7 @@ with st.form('user input'):
                 if isinstance(response, dict):
                     quiz = response.get('quiz', None)
                     if quiz is not None:
-                        clean_quiz_str = clean_quiz_json(quiz)
+                        clean_quiz_str = clean_quiz_data(quiz)
                         if clean_quiz_str:
                             table_data = get_table_data(clean_quiz_str)
                             if table_data:
